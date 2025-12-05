@@ -1,5 +1,16 @@
 
-import { Student, Post, Application, PostType, ApplicationStatus, WorkloadSummary, WageStatus, ScholarshipRecord } from './types';
+import { Student, Post, Application, PostType, ApplicationStatus, WorkloadSummary, WageStatus, ScholarshipRecord, Department, PublicNotice } from './types';
+
+export const MOCK_DEPARTMENTS: Department[] = [
+  { id: 1, name: '信息管理系' },
+  { id: 2, name: '计算机学院' },
+  { id: 3, name: '商学院' }
+];
+
+export const MOCK_PUBLIC_NOTICES: PublicNotice[] = [
+  { id: 1, title: '关于2023-2024学年博士生岗位申请的通知', content: '...', publishTime: '2023-08-20', publisher: '系办' },
+  { id: 2, title: '2023秋季学期奖学金评定公示', content: '...', publishTime: '2023-09-10', publisher: '学工组' }
+];
 
 export const MOCK_STUDENTS: Student[] = [
   { 
@@ -18,7 +29,9 @@ export const MOCK_STUDENTS: Student[] = [
     researchCount: 2,
     phone: '13800138000',
     email: 'liming@univ.edu.cn',
-    bankAccount: '62220232023222'
+    bankAccount: '62220232023222',
+    departmentId: 1,
+    departmentName: '信息管理系'
   },
   { 
     id: 1002, 
@@ -35,7 +48,8 @@ export const MOCK_STUDENTS: Student[] = [
     gpa: 3.5,
     researchCount: 1,
     phone: '13900139000',
-    email: 'wangqiang@univ.edu.cn'
+    email: 'wangqiang@univ.edu.cn',
+    departmentId: 1
   },
   { 
     id: 1003, 
@@ -52,7 +66,8 @@ export const MOCK_STUDENTS: Student[] = [
     gpa: 3.9,
     researchCount: 4,
     phone: '13700137000',
-    email: 'zhaoya@univ.edu.cn'
+    email: 'zhaoya@univ.edu.cn',
+    departmentId: 1
   },
 ];
 
@@ -62,6 +77,7 @@ export const MOCK_POSTS: Post[] = [
     title: '《数据库系统原理》助教',
     type: PostType.TA,
     deptId: 1,
+    deptName: '信息管理系',
     supervisorName: '张教授',
     year: 2023,
     totalSlots: 2,
@@ -77,6 +93,7 @@ export const MOCK_POSTS: Post[] = [
     title: '信息检索课题组 助研',
     type: PostType.RA,
     deptId: 1,
+    deptName: '信息管理系',
     supervisorName: '李教授',
     year: 2023,
     totalSlots: 1,
@@ -92,6 +109,7 @@ export const MOCK_POSTS: Post[] = [
     title: '《高级统计学》助教',
     type: PostType.TA,
     deptId: 1,
+    deptName: '信息管理系',
     supervisorName: '张教授',
     year: 2023,
     totalSlots: 1,

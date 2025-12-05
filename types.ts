@@ -22,6 +22,11 @@ export enum WageStatus {
   N = 'N'
 }
 
+export interface Department {
+  id: number;
+  name: string;
+}
+
 // 对应表: students
 export interface Student {
   id: number; // PK: student_id
@@ -40,6 +45,8 @@ export interface Student {
   hasJob: boolean; // Backend Requirement 1
   gpa?: number; 
   researchCount?: number; 
+  departmentId?: number;
+  departmentName?: string;
 }
 
 // 对应表: positions
@@ -48,6 +55,7 @@ export interface Post {
   title: string;
   type: PostType;
   deptId: number;
+  deptName?: string;
   supervisorName: string; 
   year: number; // 学年
   totalSlots: number;
@@ -99,6 +107,14 @@ export interface WorkloadSummary {
   yearEnd: string; // 6/30
   totalHours: number; // Derived from Position.workload directly
   status: '正常' | '异常'; 
+}
+
+export interface PublicNotice {
+  id: number;
+  title: string;
+  content: string;
+  publishTime: string;
+  publisher: string;
 }
 
 export type ViewState = 'dashboard' | 'posts' | 'applications' | 'scholarships' | 'docs' | 'settings' | 'users' | 'reports' | 'profile';
